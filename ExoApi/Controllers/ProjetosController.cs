@@ -1,5 +1,6 @@
 ﻿using ExoApi.Domains;
 using ExoApi.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,12 +17,14 @@ namespace ExoApi.Controllers
             _projetoRepository = projetoRepository;
         }
 
+        [Authorize]
         [HttpGet]
         public IActionResult ListarProdutos()
         {
             return StatusCode(200, _projetoRepository.Listar());
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult CriarProduto(Projeto projeto)
         {
@@ -29,6 +32,7 @@ namespace ExoApi.Controllers
             return StatusCode(201);
         }
 
+        [Authorize]
         [HttpPut("{id}")]
 
         public IActionResult AtualizarProduto(int id, Projeto projeto)
@@ -45,6 +49,7 @@ namespace ExoApi.Controllers
             return StatusCode(204);
         }
 
+        [Authorize]
         [HttpDelete("{id}")]
         public IActionResult ExcluirProduto(int id)
         {

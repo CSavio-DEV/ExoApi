@@ -50,5 +50,10 @@ namespace ExoApi.Repositories
             _ctx.Usuarios.Remove(usuario);
             _ctx.SaveChanges();
         }
+
+        public Usuario BuscarPorEmailESenha(Usuario usuario)
+        {
+            return _ctx.Usuarios.FirstOrDefault(x => x.Email == usuario.Email && x.Senha == usuario.Senha);
+        }
     }
 }
