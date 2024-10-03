@@ -7,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped<ExoApiContext, ExoApiContext>();
 builder.Services.AddTransient<ProjetoRepository, ProjetoRepository>();
+builder.Services.AddTransient<UsuarioRepository, UsuarioRepository>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

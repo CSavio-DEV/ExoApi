@@ -1,7 +1,10 @@
 ﻿using ExoApi.Domains;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore; //facilitar na conexão com o DB
 
 namespace ExoApi.Contexts
+
+//aqui é a configuração do DB
+
 {
     public class ExoApiContext : DbContext
     {
@@ -17,5 +20,6 @@ namespace ExoApi.Contexts
         }
 
         public DbSet<Projeto> Projetos { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
     }
 }
